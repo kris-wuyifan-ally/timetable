@@ -9,7 +9,7 @@
 ├─ index.html                    # 网页主程序，单文件
 ├─ server.py                     # 本地导入助手，同时提供网页访问
 ├─ jw_scraper.py                 # 教务系统抓取逻辑
-├─ 导入课程表.bat                 # Windows 启动脚本
+├─ 启动课程表.bat                 # Windows 启动脚本
 ├─ config.example.json           # 配置模板
 ├─ requirements.txt
 └─ android/
@@ -37,7 +37,7 @@
 
 3. 填写 `config.json` 中的学校地址和账号信息。
 
-4. 双击 `导入课程表.bat`，或运行：
+4. 双击 `启动课程表.bat`，或运行：
 
    ```powershell
    python server.py
