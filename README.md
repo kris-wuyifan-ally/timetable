@@ -2,6 +2,14 @@
 
 一个单文件课表网页，以及基于 WebView 的 Android 客户端。支持手动添加课程、从教务系统导入课表、按周查看、横屏/窄屏布局和 Android 端自动更新。
 
+## 下载
+
+安卓客户端：[coursetable-v1.0.3.apk](https://github.com/kris-wuyifan-ally/timetable/releases/download/v1.0.3/coursetable-v1.0.3.apk)（Android 8.0 及以上，约 66 KB）
+
+更多版本见 [Releases](https://github.com/kris-wuyifan-ally/timetable/releases)。
+
+---
+
 ## 目录结构
 
 ```text
