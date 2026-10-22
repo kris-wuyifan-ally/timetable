@@ -1,0 +1,7 @@
+{
+  "school_name": "your-school",
+  "base_url": "http://jw.example.edu.cn/jsxsd",
+  "account": "your-student-id",
+  "password": "your-password",
+  "referer": "http://jw.example.edu.cn/jsxsd/"
+}

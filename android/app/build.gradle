@@ -1,0 +1,59 @@
+plugins { id 'com.android.application' }
+
+def keystoreProps = new Properties()
+def keystoreFile = rootProject.file('keystore.properties')
+if (keystoreFile.exists()) {
+    keystoreProps.load(new FileInputStream(keystoreFile))
+}
+
+android {
+    namespace 'com.coursetable.app'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.coursetable.app'
+        minSdk 26
+        targetSdk 34
+        versionCode 4
+        versionName '1.0.3'
+    }
+
+    signingConfigs {
+        release {
+            if (keystoreProps['storeFile']) {
+                storeFile rootProject.file(keystoreProps['storeFile'])
+                storePassword keystoreProps['storePassword']
+                keyAlias keystoreProps['keyAlias']
+                keyPassword keystoreProps['keyPassword']
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix '.debug'
+            versionNameSuffix '-debug'
+        }
+        release {
+            minifyEnabled false
+            if (keystoreProps['storeFile']) signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+}
+
+tasks.register('copyWebAssets', Copy) {
+    from rootProject.file('../index.html')
+    into file('src/main/assets')
+    outputs.upToDateWhen { false }
+}
+
+preBuild.dependsOn 'copyWebAssets'
